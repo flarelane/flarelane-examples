@@ -1,7 +1,61 @@
+import 'package:example/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flarelane_flutter/flarelane_flutter.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+const flarelaneProjectId = "flarelaneProjectId";
+
+Future<void> main() async {
   runApp(const MyApp());
+
+  initFlareLane();
+  await initFirebase();
+}
+
+void initFlareLane() {
+  FlareLane.shared
+      .initialize(flarelaneProjectId, requestPermissionOnLaunch: true);
+  FlareLane.shared.setNotificationClickedHandler((notification) {
+    print('[FlareLane] setNotificationClickedHandler: ${notification}');
+  });
+  FlareLane.shared.setNotificationForegroundReceivedHandler((event) {
+    print(
+        '[FlareLane] setNotificationForegroundReceivedHandler: ${event.notification}');
+    event.display();
+  });
+}
+
+Future<void> initFirebase() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseMessaging.onBackgroundMessage(_fcmOnBackground);
+  FirebaseMessaging.onMessageOpenedApp.listen(_fcmOnClick);
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    print('[FCM] onForeground: ${message.toMap()}');
+  });
+
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+  print('[FCM] User granted permission: ${settings.authorizationStatus}');
+
+  final fcmToken = await FirebaseMessaging.instance.getToken();
+  print('[FCM] fcmToken: ${fcmToken}');
+
+  RemoteMessage? initialMessage =
+      await FirebaseMessaging.instance.getInitialMessage();
+  if (initialMessage != null) {
+    _fcmOnClick(initialMessage);
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -122,4 +176,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+@pragma('vm:entry-point')
+Future<void> _fcmOnBackground(RemoteMessage message) async {
+  print("[FCM] onBackground: ${message.toMap()}");
+}
+
+void _fcmOnClick(RemoteMessage message) {
+  print('[FCM] onClick: ${message.toMap()}');
 }
