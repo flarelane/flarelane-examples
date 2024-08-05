@@ -8,7 +8,6 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1 }}>
         <WebView
-          // ...
           onMessage={(event) => {
             const data = JSON.parse(event.nativeEvent.data);
             switch (data.type) {
