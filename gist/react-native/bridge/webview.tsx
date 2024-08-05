@@ -13,7 +13,7 @@ export default class App extends Component {
             const data = JSON.parse(event.nativeEvent.data);
             switch (data.type) {
               case 'setUserId':
-                FlareLane.setState({ title: data.userId });
+                FlareLane.setUserId({ title: data.userId });
                 break;
               case 'setTags':
                 FlareLane.setTags({ color: data.tags });
