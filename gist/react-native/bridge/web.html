@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.flarelane.com/WebSDK.js" charset="UTF-8"></script>
+    <script>FlareLane.initialize({ projectId: "프로젝트 ID" });</script>
+</head>
+<body>
+    <button id="set_userid_button">Set UserId</button>
+    <button id="set_tags_button">Set Tags</button>
+    <script>
+        document.getElementById('set_userid_button').addEventListener('click', function() {
+            FlareLane.setUserId('사용자 ID');
+            window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'setUserId', userId: '사용자 ID' }));
+        });
+        document.getElementById('set_tags_button').addEventListener('click', function() {
+            FlareLane.setTags({ key: 'value' });
+            window.ReactNativeWebView.postMessage(JSON.stringify({ type: 'setTags', tags: { key: 'value' } }));
+        });
+    </script>
+</body>
+</html>
