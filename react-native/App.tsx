@@ -6,7 +6,7 @@
  */
 
 import FlareLane from '@flarelane/react-native-sdk';
-import type { PropsWithChildren } from 'react';
+import type {PropsWithChildren} from 'react';
 import React from 'react';
 import {
   SafeAreaView,
@@ -30,7 +30,7 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): JSX.Element {
+function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -56,14 +56,14 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  FlareLane.initialize('a43cdc82-0ea5-4fdd-aebc-1940fe99b6c3');
+  FlareLane.initialize('a43cdc82-0ea5-4fdd-aebc-1940fe99b6c3', true);
 
   return (
     <SafeAreaView style={backgroundStyle}>
