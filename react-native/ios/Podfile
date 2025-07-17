@@ -35,5 +35,5 @@ target 'AwesomeProject' do
 end
 
 target 'FlareLaneNotificationServiceExtension' do
-  pod 'FlareLane', '1.7.3'
+  pod 'FlareLane', '1.9.2'
 end

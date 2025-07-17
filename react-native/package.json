@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@flarelane/react-native-sdk": "1.8.2",
+    "@flarelane/react-native-sdk": "1.9.2",
     "react": "19.0.0",
     "react-native": "0.79.2"
   },

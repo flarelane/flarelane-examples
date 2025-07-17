@@ -3,7 +3,7 @@ PODS:
   - DoubleConversion (1.1.6)
   - fast_float (6.1.4)
   - FBLazyVector (0.79.2)
-  - FlareLane (1.7.3)
+  - FlareLane (1.9.2)
   - fmt (11.0.2)
   - glog (0.3.5)
   - hermes-engine (0.79.2):
@@ -1333,8 +1333,8 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-flarelane (1.8.2):
-    - FlareLane (= 1.7.3)
+  - react-native-flarelane (1.9.2):
+    - FlareLane (= 1.9.2)
     - React-Core
   - React-NativeModulesApple (0.79.2):
     - glog
@@ -1666,7 +1666,7 @@ DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - fast_float (from `../node_modules/react-native/third-party-podspecs/fast_float.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
-  - FlareLane (= 1.7.3)
+  - FlareLane (= 1.9.2)
   - fmt (from `../node_modules/react-native/third-party-podspecs/fmt.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
@@ -1892,7 +1892,7 @@ SPEC CHECKSUMS:
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
   FBLazyVector: 84b955f7b4da8b895faf5946f73748267347c975
-  FlareLane: e6b1c69beffcb5beacae4fbb2edc1127054967e7
+  FlareLane: 7adafe54757dabd7a63c3bfa0ff61c1cbd4c818d
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: 314be5250afa5692b57b4dd1705959e1973a8ebe
@@ -1927,7 +1927,7 @@ SPEC CHECKSUMS:
   React-logger: 368570a253f00879a1e4fea24ed4047e72e7bbf3
   React-Mapbuffer: c04fcda1c6281fc0a6824c7dcc1633dd217ac1ec
   React-microtasksnativemodule: ca2804a25fdcefffa0aa942aa23ab53b99614a34
-  react-native-flarelane: 0799acc692689fae8d669de439787eae738fbc6f
+  react-native-flarelane: 3c08e13572574df9baa49815066a81873d5e9ab2
   React-NativeModulesApple: 452b86b29fae99ed0a4015dca3ad9cd222f88abf
   React-oscompat: ef5df1c734f19b8003e149317d041b8ce1f7d29c
   React-perflogger: 6fd2f6811533e9c19a61e855c3033eecbf4ad2a0
@@ -1962,6 +1962,6 @@ SPEC CHECKSUMS:
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 9f110fc4b7aa538663cba3c14cbb1c335f43c13f
 
-PODFILE CHECKSUM: 36577f9e8806d44724fd5e523a5657a251a409e1
+PODFILE CHECKSUM: ed8d5873cc369e7371252cd76a79923c523c2bd2
 
 COCOAPODS: 1.16.2

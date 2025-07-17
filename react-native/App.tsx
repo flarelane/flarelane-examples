@@ -77,6 +77,7 @@ function App(): React.JSX.Element {
   FlareLane.setNotificationClickedHandler(notification => {
     console.log('Notification clicked: ', JSON.stringify(notification));
   });
+  FlareLane.displayInApp('home');
 
   return (
     <View style={backgroundStyle}>
